@@ -21,7 +21,7 @@ Build and Start the Services: In the terminal, navigate to the project folder an
 
 bash
 Copy code
-docker-compose up --build
+docker compose up --build
 Access the Services:
 
 User Service: http://localhost:3001

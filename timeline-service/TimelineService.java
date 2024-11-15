@@ -16,7 +16,7 @@ public class TimelineService {
     private static Gson gson = new Gson();
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(5002), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(3003), 0);
         server.createContext("/timeline/posts", TimelineService::handlePosts);
         server.setExecutor(null); // creates a default executor
         System.out.println("Timeline Service is running on port 3003...");
