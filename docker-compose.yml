@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "3001:3001"
+    networks:
+      - twitter-net
+
+  tweet-service:
+    build: ./tweet-service
+    ports:
+      - "3002:3002"
+    networks:
+      - twitter-net
+
+  timeline-service:
+    build: ./timeline-service
+    ports:
+      - "3003:3003"
+    container_name: timeline-service
+    networks:
+      - twitter-net
+    depends_on:
+      - tweet-service
+networks:
+  twitter-net:
+    driver: bridge
