@@ -1,9 +1,11 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import requests
-
+from messages import consume_messages
 # Sample data storage
 tweets = []
+
+# listen and print from RabitMQ
 
 class TweetHandler(BaseHTTPRequestHandler):
     # Handle GET requests

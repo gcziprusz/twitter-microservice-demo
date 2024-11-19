@@ -10,6 +10,7 @@ RUN pip3 install -r requirements.txt
 
 # Copy the Python application code
 COPY tweet_service.py .
+COPY messages.py .
 
 # Expose the port the app runs on
 EXPOSE 3002
