@@ -35,6 +35,12 @@ Get Timeline: Use a GET request to http://localhost:3003/timeline to retrieve tw
 
 ```
 curl -X POST http://localhost:3001/register -d'{ "username": "newuser" }'
-curl -X POST http://localhost:3002/tweet -d'{ "userId": 1, "content": "Hello Twitter!" }'
-curl  http://localhost:3003/timeline
+curl http://localhost:3001/users/
+
+curl -X POST http://localhost:3002/tweets -d'{ "userId": 1, "content": "Hello Twitter!" }'
+
+curl  http://localhost:3003/timeline/posts
+curl  http://localhost:3003/timeline/posts -d'{ "userId": 1, "content": "Hello Twitter!" }'
 ```
+
+You can access the RabbitMQ management UI at http://localhost:15672 using the username and password defined in the environment.

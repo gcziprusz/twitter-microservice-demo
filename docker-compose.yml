@@ -1,5 +1,4 @@
 # docker-compose.yml
-version: "3.8"
 services:
   user-service:
     build: ./user-service
@@ -14,6 +13,8 @@ services:
       - "3002:3002"
     networks:
       - twitter-net
+    depends_on:
+      - user-service
 
   timeline-service:
     build: ./timeline-service
@@ -24,6 +25,17 @@ services:
       - twitter-net
     depends_on:
       - tweet-service
+  rabbitmq-service:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"  # RabbitMQ Management UI
+      - "5672:5672"    # RabbitMQ Default port
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    networks:
+      - twitter-net
 networks:
   twitter-net:
     driver: bridge
