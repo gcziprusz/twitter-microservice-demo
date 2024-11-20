@@ -1,7 +1,6 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import requests
-from messages import consume_messages
 # Sample data storage
 tweets = []
 

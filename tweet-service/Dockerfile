@@ -16,4 +16,4 @@ COPY messages.py .
 EXPOSE 3002
 
 # Run the application
-CMD ["python", "tweet_service.py"]
+CMD ["python", "tweet_service.py","messages.py"]

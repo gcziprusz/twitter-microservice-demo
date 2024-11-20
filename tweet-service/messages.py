@@ -8,7 +8,7 @@ def callback(ch, method, properties, body):
     print(f"tweet-service: received {body.decode()}")
 
 def consume_messages():
-    print('consume_messages RabbitMQ')
+    print('tweet service: consume_messages RabbitMQ')
     # Connect to RabbitMQ
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(
@@ -38,3 +38,6 @@ def consume_messages():
         print("- Incorrect hostname")
         print("- Network/firewall blocking connection")
         print("- Incorrect credentials")
+
+if __name__ == "__main__":
+    consume_messages()
