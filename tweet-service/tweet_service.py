@@ -27,8 +27,8 @@ class TweetHandler(BaseHTTPRequestHandler):
             new_tweet = json.loads(post_data.decode("utf-8"))
             # Retrieve user information from User Service
             user_id = new_tweet["userId"]
-            print(f"new_tweet{new_tweet}")
-            print(f"user_id{user_id}")
+            print(f"new_tweet{new_tweet}", flush=True)
+            print(f"user_id{user_id}", flush=True)
            
             user_info = requests.get(f"http://user-service:3001/users/{user_id}")
             if user_info.status_code == 200:
@@ -52,7 +52,7 @@ class TweetHandler(BaseHTTPRequestHandler):
 def run(server_class=HTTPServer, handler_class=TweetHandler):
     server_address = ('', 3002)
     httpd = server_class(server_address, handler_class)
-    print("Tweet Service running on port 3002...")
+    print("Tweet Service running on port 3002...", flush=True)
     httpd.serve_forever()
 
 if __name__ == "__main__":

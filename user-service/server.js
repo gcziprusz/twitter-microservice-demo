@@ -20,7 +20,6 @@ app.get('/users/:id', (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  console.log('req',req.body,req.params)
   const user = { id: users.length + 1, username: req.body.username };
   users.push(user);
   messaging.publishMessage(`User-service: User ${JSON.stringify(user)} was created!`);
