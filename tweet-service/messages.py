@@ -12,9 +12,8 @@ def consume_messages():
     # Connect to RabbitMQ
     # try:
     connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='localhost',  # Docker service name
+        host='rabbitmq',  # Docker service name
         port=5672,                # Default RabbitMQ port
-        credentials=pika.PlainCredentials('user', 'password')
         )
     )
     channel = connection.channel()

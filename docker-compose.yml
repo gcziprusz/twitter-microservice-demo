@@ -14,10 +14,10 @@ services:
     networks:
       - twitter-net
     depends_on:
-      - rabbitmq-service
+      - rabbitmq
       - user-service
     environment:
-      RABBITMQ_HOST: rabbitmq-service
+      RABBITMQ_HOST: rabbitmq
 
   timeline-service:
     build: ./timeline-service
@@ -29,9 +29,9 @@ services:
     depends_on:
       - tweet-service
 
-  rabbitmq-service:
-    image: "rabbitmq:management"
-    container_name: rabbitmq-service
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq
     ports:
       - "15672:15672"  # RabbitMQ Management UI
       - "5672:5672"    # RabbitMQ Default port

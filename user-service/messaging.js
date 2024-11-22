@@ -7,7 +7,7 @@ const ROUTING_KEY = 'messageRoutingKey';
 async function publishMessage(message) {
     try {
         // Connect to RabbitMQ server
-        const connection = await amqp.connect('amqp://user:password@rabbitmq-service');
+        const connection = await amqp.connect('amqp://user:password@rabbitmq');
         const channel = await connection.createChannel();
 
         // Declare exchange and queue
